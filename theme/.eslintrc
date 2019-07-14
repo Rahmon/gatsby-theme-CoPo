@@ -1,6 +1,8 @@
 {
   "parser": "babel-eslint",
   "rules": {
+    "no-var": [ 1 ],
+    "no-console": [ 1 ],
     "array-bracket-spacing": ["error", "always"],
     "space-before-blocks": ["error", "always"],
     "space-in-parens": ["error", "always"],
@@ -12,6 +14,8 @@
         "words": true,
         "nonwords": true
       }
-    ]
+    ],
+    "block-spacing": ["error", "always"],
+    "object-curly-spacing": ["error", "always"]
   }
 }
