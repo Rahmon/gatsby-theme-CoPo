@@ -15,12 +15,14 @@
   },
   "devDependencies": {
     "eslint": "5.16.0",
+    "eslint-plugin-react": "^7.14.2",
     "gatsby": "^2.13.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },
   "dependencies": {
     "@mdx-js/react": "^1.0.21",
+    "styled-components": "^4.3.2",
     "theme-ui": "^0.2.2"
   },
   "keywords": [
