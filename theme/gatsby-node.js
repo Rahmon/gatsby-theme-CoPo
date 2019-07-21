@@ -17,17 +17,20 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
             node,
             value: url 
         })
-
-        console.log({node, year, month, value});
     }
     
 }
 
 exports.createPages = ({ graphql, actions }) => {
-    // Destructure the createPage function from the actions object
     const { createPage } = actions
   
     return new Promise((resolve, reject) => {
+
+        createPage({
+            path: '/',
+            component: path.resolve(`${__dirname}/src/templates/blog-index.js`),
+        })
+
       resolve(
         graphql(
           `
