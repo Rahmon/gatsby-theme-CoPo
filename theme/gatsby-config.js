@@ -1,5 +1,10 @@
 module.exports = {
+    siteMetadata: {
+        title: 'CoPo',
+        subtitle: 'Code is Poetry'
+    },
     plugins: [
+        'gatsby-plugin-styled-components',
         {
             resolve: 'gatsby-plugin-mdx',
             options: {
