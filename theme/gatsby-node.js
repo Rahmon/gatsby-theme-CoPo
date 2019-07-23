@@ -7,15 +7,10 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     if ('Mdx' === node.internal.type) {
         const value = createFilePath({ node, getNode });
 
-        const year = node.frontmatter.year;
-        const month = node.frontmatter.month;
-
-        const url = `/${year}/${month}${value}`
-
         createNodeField({
             name: 'slug',
             node,
-            value: url 
+            value: value
         })
     }
     
