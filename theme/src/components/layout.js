@@ -22,10 +22,25 @@ const GlobalStyle = createGlobalStyle`
       color: #000;
       line-height: 1.4;
     }
+
     body {
       margin: 1.375rem;
       font-size: 1.125rem;
-    }`;
+    }
+    
+    a {
+        color: #0064c1;
+
+        :hover {
+            color: #003D73;
+        }
+
+        :visited: {
+            color: #8d39d0;
+        }
+    }
+`;
+
 
 export default ({children}) => {
     
