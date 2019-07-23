@@ -2,12 +2,14 @@ import React from "react"
 import { graphql } from "gatsby"
 import MDXRenderer from "gatsby-plugin-mdx/mdx-renderer"
 
+import Layout from './layout';
+
 export default function PageTemplate({ data: { mdx } }) {
   return (
-    <div>
+    <Layout>
       <h1>{mdx.frontmatter.title}</h1>
       <MDXRenderer>{mdx.body}</MDXRenderer>
-    </div>
+    </Layout>
   )
 }
 
