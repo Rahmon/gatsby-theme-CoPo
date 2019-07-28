@@ -1,5 +1,6 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import moment from 'moment';
 
 import Layout from '../components/layout.js'
 import Post from '../components/Post'
@@ -12,7 +13,8 @@ const BlogIndex = ({ data }) => {
       {posts.map(({ node: post }) => (
         <Post key={post.id}>
           <header>
-            <h1 style={{fontSize: '2.5rem', margin: '0', lineHeight: '1.2'}}>
+            {post.frontmatter.date && <p style={{marginTop: 0,color: '#696969', fontSize: '1rem'}}>{moment(post.frontmatter.date, "MM-DD-YYYY").format('LL')}</p>}
+            <h1 style={{marginTop: '-.703125rem'}}>
               <Link to={post.fields.slug}>
                 {post.frontmatter.title}
               </Link>
@@ -34,6 +36,7 @@ export const pageQuery = graphql`
           excerpt
           frontmatter {
             title
+            date
           }
           fields {
             slug
