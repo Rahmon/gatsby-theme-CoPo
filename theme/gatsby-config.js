@@ -1,7 +1,17 @@
 module.exports = {
     siteMetadata: {
         title: 'CoPo',
-        subtitle: 'code is poetry'
+        subtitle: 'code is poetry',
+        navigationLinks: [
+            {
+                text: 'Home',
+                link: '/'
+            },
+            {
+                text: 'About',
+                link: '/about'
+            }
+        ]
     },
     plugins: [
         'gatsby-plugin-styled-components',

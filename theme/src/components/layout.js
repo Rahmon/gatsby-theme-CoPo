@@ -2,8 +2,9 @@
  * External dependencies
  */
 import React from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql, useStaticQuery, Link } from 'gatsby';
 import get from 'lodash/get';
+import isEmpty from 'lodash/isEmpty';
 import { createGlobalStyle } from 'styled-components';
 
 /**
@@ -38,6 +39,12 @@ const GlobalStyle = createGlobalStyle`
         :visited: {
             color: #8d39d0;
         }
+
+        &.active {
+            cursor: default;
+            color: inherit;
+            text-decoration: none;
+        }
     }
 
     h1, h2, h3, h4, h5, h6 {
@@ -59,6 +66,10 @@ export default ({children}) => {
             siteMetadata {
                 title
                 subtitle
+                navigationLinks {
+                    text
+                    link
+                }
             }
         }
     }
@@ -66,6 +77,7 @@ export default ({children}) => {
     
     const title = get(data, 'site.siteMetadata.title');
     const subtitle = get(data, 'site.siteMetadata.subtitle');
+    const navigationLinks = get(data, 'site.siteMetadata.navigationLinks', []);
 
     return (
         <>
@@ -75,13 +87,18 @@ export default ({children}) => {
                 {title && <Title>{title}</Title>}
                 {subtitle && <Subtitle>{subtitle}</Subtitle>}
             
-                <Nav>
+                {!isEmpty(navigationLinks) && 
+                (<Nav>
                     <ul>
-                        <li>Home</li>
-                        <li><a href="/blog">Blog</a></li>
-                        <li><a href="/about">About</a></li>
+                        {navigationLinks.map(item => (
+                            <li key={item.text+item.link}>
+                                <Link to={item.link} activeClassName="active">
+                                    {item.text}
+                                </Link>
+                            </li>
+                        ))}
                     </ul>
-                </Nav>
+                </Nav>)}
             </Header>
 
             <main style={{
