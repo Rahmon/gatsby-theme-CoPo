@@ -6,6 +6,7 @@ import { graphql, useStaticQuery, Link } from 'gatsby';
 import get from 'lodash/get';
 import isEmpty from 'lodash/isEmpty';
 import { createGlobalStyle } from 'styled-components';
+import Helmet from 'react-helmet';
 
 /**
  * Internal dependencies
@@ -70,6 +71,7 @@ export default ({children}) => {
                     text
                     link
                 }
+                language
             }
         }
     }
@@ -78,9 +80,21 @@ export default ({children}) => {
     const title = get(data, 'site.siteMetadata.title');
     const subtitle = get(data, 'site.siteMetadata.subtitle');
     const navigationLinks = get(data, 'site.siteMetadata.navigationLinks', []);
+    const language = get(data, 'site.siteMetadata.language');
 
     return (
         <>
+            <Helmet 
+                htmlAttributes={ { lang: language} }
+                title={title + (subtitle && ` - ${subtitle}`)}
+                meta={[
+                    {
+                      name: 'viewport',
+                      content: 'width=device-width, initial-scale=1.0',
+                    }
+                ]}
+            />
+
             <GlobalStyle  />
 
             <Header>
