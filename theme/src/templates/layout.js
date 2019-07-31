@@ -10,10 +10,10 @@ import { createGlobalStyle } from 'styled-components';
 /**
  * Internal dependencies
  */
-import Header from './Header';
-import Title from './TitleHeader';
-import Subtitle from './SubtitleHeader';
-import Nav from './NavHeader';
+import Header from '../components/Header';
+import Title from '../components/TitleHeader';
+import Subtitle from '../components/SubtitleHeader';
+import Nav from '../components/NavHeader';
 
 const GlobalStyle = createGlobalStyle`
     html {

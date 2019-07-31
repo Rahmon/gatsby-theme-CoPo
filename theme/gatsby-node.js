@@ -52,7 +52,7 @@ exports.createPages = ({ graphql, actions }) => {
           result.data.allMdx.edges.forEach(({ node }) => {
             createPage({
               path: node.fields.slug,
-              component: path.resolve(`${__dirname}/src/components/posts-page-layout.js`),
+              component: path.resolve(`${__dirname}/src/templates/post-layout.js`),
               context: { id: node.id },
             })
           })

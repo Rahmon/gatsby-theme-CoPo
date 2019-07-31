@@ -3,11 +3,19 @@ import { graphql } from "gatsby"
 import MDXRenderer from "gatsby-plugin-mdx/mdx-renderer"
 
 import Layout from './layout';
+import DatePost from '../components/DatePost';
+import TitlePost from '../components/TitlePost';
 
 export default function PageTemplate({ data: { mdx } }) {
   return (
     <Layout>
-      <h1>{mdx.frontmatter.title}</h1>
+      <header>
+        <DatePost>{mdx.frontmatter.date}</DatePost>
+              
+        <TitlePost>
+            {mdx.frontmatter.title}
+        </TitlePost>
+      </header>
       <MDXRenderer>{mdx.body}</MDXRenderer>
     </Layout>
   )
@@ -19,6 +27,7 @@ export const pageQuery = graphql`
       id
       frontmatter {
         title
+        date
       }
       body
     }
