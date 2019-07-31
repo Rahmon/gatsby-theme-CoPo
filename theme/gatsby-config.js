@@ -21,7 +21,6 @@ module.exports = {
                 extensions: ['.mdx', '.md'],
                 defaultLayouts: {
                     default: require.resolve('./src/components/layout.js'),
-                    posts: require.resolve('./src/components/layout.js'),
                 },
             },
         },
