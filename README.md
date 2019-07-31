@@ -1,6 +1,6 @@
 # gatsby-theme-CoPo
 
-Code is Poetry
+Gatsby theme CoPo (Code is Poetry). See a [demo](https://gatsby-theme-copo.netlify.com/).
 
 ## Install
 
