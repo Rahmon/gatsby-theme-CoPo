@@ -47,10 +47,10 @@ module.exports = {
             link: '/'
         },
         {
-            text: 'About',
-            link: '/about'
+            text: 'Page',
+            link: '/yourPage'
         }
-    ] // Navigation links of the website,
+    ], // Navigation links of the website,
     language: '' // Language of the website
     
   },
