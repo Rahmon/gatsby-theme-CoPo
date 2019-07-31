@@ -1,3 +1,7 @@
+const fs = require('fs');
+
+const postsPath = fs.existsSync('./src/posts') ? './src/posts' : `${__dirname}/src/posts/`;
+
 module.exports = {
     siteMetadata: {
         title: 'CoPo',
@@ -11,7 +15,8 @@ module.exports = {
                 text: 'About',
                 link: '/about'
             }
-        ]
+        ],
+        language: 'en'
     },
     plugins: [
         'gatsby-plugin-styled-components',
@@ -28,7 +33,7 @@ module.exports = {
             resolve: 'gatsby-source-filesystem',
             options: {
                 name: 'posts',
-                path: `${__dirname}/src/posts/`
+                path: postsPath
             },
         },
     ],
