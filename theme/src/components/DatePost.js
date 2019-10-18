@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 const DatePost = props => {
   const { children: date } = props;
-  
+
   const dateFormated = date && moment(date, "YYYY-MM-DD").format('LL');
 
   return dateFormated && <DatePostStyled>{dateFormated}</DatePostStyled>
