@@ -65,7 +65,7 @@ module.exports = {
 
 ### Blog posts
 
-The theme supports creating blog posts using markdown files. You can start adding your first page by creating a file at `src/posts/my-first-post.md` with the following content.
+The theme supports creating blog posts using markdown files. You can start adding your first post by creating a file at `src/posts/my-first-post.md` with the following content.
 
 ```md
 ---
