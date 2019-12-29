@@ -1,20 +1,20 @@
 /**
  * External dependencies
  */
-import React from 'react';
-import { graphql, useStaticQuery, Link } from 'gatsby';
-import get from 'lodash/get';
-import isEmpty from 'lodash/isEmpty';
-import { createGlobalStyle } from 'styled-components';
-import Helmet from 'react-helmet';
+import React from "react";
+import { graphql, useStaticQuery, Link } from "gatsby";
+import get from "lodash/get";
+import isEmpty from "lodash/isEmpty";
+import { createGlobalStyle } from "styled-components";
+import Helmet from "react-helmet";
 
 /**
  * Internal dependencies
  */
-import Header from '../components/Header';
-import Title from '../components/TitleHeader';
-import Subtitle from '../components/SubtitleHeader';
-import Nav from '../components/NavHeader';
+import Header from "../components/Header";
+import Title from "../components/TitleHeader";
+import Subtitle from "../components/SubtitleHeader";
+import Nav from "../components/NavHeader";
 
 const GlobalStyle = createGlobalStyle`
     html {
@@ -48,79 +48,76 @@ const GlobalStyle = createGlobalStyle`
         }
     }
 
-    h1, h2, h3, h4, h5, h6 {
-        margin: 0;
-        line-height: 1.2;
-    }
-
     h1 {
         font-size: 2.8125rem;
     }
 `;
 
-
-export default ({children}) => {
-    
-    const data = useStaticQuery( graphql`
+export default ({ children }) => {
+  const data = useStaticQuery(graphql`
     query {
-        site {
-            siteMetadata {
-                title
-                subtitle
-                navigationLinks {
-                    text
-                    link
-                }
-                language
-            }
+      site {
+        siteMetadata {
+          title
+          subtitle
+          navigationLinks {
+            text
+            link
+          }
+          language
         }
+      }
     }
-    ` );
-    
-    const title = get(data, 'site.siteMetadata.title');
-    const subtitle = get(data, 'site.siteMetadata.subtitle');
-    const navigationLinks = get(data, 'site.siteMetadata.navigationLinks', []);
-    const language = get(data, 'site.siteMetadata.language');
+  `);
 
-    return (
-        <>
-            <Helmet 
-                htmlAttributes={ { lang: language} }
-                title={title + (subtitle && ` - ${subtitle}`)}
-                meta={[
-                    {
-                      name: 'viewport',
-                      content: 'width=device-width, initial-scale=1.0',
-                    }
-                ]}
-            />
+  const title = get(data, "site.siteMetadata.title");
+  const subtitle = get(data, "site.siteMetadata.subtitle");
+  const navigationLinks = get(data, "site.siteMetadata.navigationLinks", []);
+  const language = get(data, "site.siteMetadata.language");
 
-            <GlobalStyle  />
+  return (
+    <>
+      <Helmet
+        htmlAttributes={{ lang: language }}
+        title={title + (subtitle && ` - ${subtitle}`)}
+        meta={[
+          {
+            name: "viewport",
+            content: "width=device-width, initial-scale=1.0"
+          }
+        ]}
+      />
 
-            <Header>
-                {title && <Title>{title}</Title>}
-                {subtitle && <Subtitle>{subtitle}</Subtitle>}
-            
-                {!isEmpty(navigationLinks) && 
-                (<Nav>
-                    <ul>
-                        {navigationLinks.map(item => (
-                            <li key={item.text+item.link}>
-                                <Link to={item.link} activeClassName="active">
-                                    {item.text}
-                                </Link>
-                            </li>
-                        ))}
-                    </ul>
-                </Nav>)}
-            </Header>
+      <GlobalStyle />
 
-            <main style={{
-                position: 'relative',
-                maxWidth: '40rem',
-                margin: '0 auto',
-            }}>
-                {children}
-            </main>
+      <Header>
+        {title && <Title>{title}</Title>}
+        {subtitle && <Subtitle>{subtitle}</Subtitle>}
+
+        {!isEmpty(navigationLinks) && (
+          <Nav>
+            <ul>
+              {navigationLinks.map(item => (
+                <li key={item.text + item.link}>
+                  <Link to={item.link} activeClassName="active">
+                    {item.text}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </Nav>
+        )}
+      </Header>
+
+      <main
+        style={{
+          position: "relative",
+          maxWidth: "40rem",
+          margin: "0 auto"
+        }}
+      >
+        {children}
+      </main>
     </>
-)}
+  );
+};
