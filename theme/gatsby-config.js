@@ -39,7 +39,14 @@ module.exports = {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 640,
-              wrapperStyle: "margin-top: 3rem;"
+              wrapperStyle: "margin-top: 3rem;",
+              backgroundColor: "transparent"
+            }
+          },
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              showLineNumbers: true
             }
           }
         ]
