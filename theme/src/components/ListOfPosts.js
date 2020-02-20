@@ -19,7 +19,7 @@ const ListOfPosts = props => {
                 </Link>
               </TitlePost>
             </header>
-            <p>{post.excerpt}</p>
+            <p>{post.frontmatter.description || post.excerpt}</p>
         </Post>
     ))
 }
