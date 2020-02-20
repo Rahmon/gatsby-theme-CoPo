@@ -48,6 +48,13 @@ module.exports = {
             options: {
               showLineNumbers: true
             }
+          },
+          {
+            resolve: `gatsby-remark-copy-linked-files`,
+            options: {
+              destinationDir: `path/to/dir`,
+              ignoreFileExtensions: [`png`, `jpg`, `jpeg`],
+            },
           }
         ]
       }
