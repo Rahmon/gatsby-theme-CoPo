@@ -1,20 +1,20 @@
 /**
  * External dependencies
  */
-import React from "react";
-import { graphql, useStaticQuery, Link } from "gatsby";
-import get from "lodash/get";
-import isEmpty from "lodash/isEmpty";
-import { createGlobalStyle } from "styled-components";
-import Helmet from "react-helmet";
+import React from 'react';
+import { graphql, useStaticQuery, Link } from 'gatsby';
+import get from 'lodash/get';
+import isEmpty from 'lodash/isEmpty';
+import { createGlobalStyle } from 'styled-components';
+import Helmet from 'react-helmet';
 
 /**
  * Internal dependencies
  */
-import Header from "../components/Header";
-import Title from "../components/TitleHeader";
-import Subtitle from "../components/SubtitleHeader";
-import Nav from "../components/NavHeader";
+import Header from '../components/Header';
+import Title from '../components/TitleHeader';
+import Subtitle from '../components/SubtitleHeader';
+import Nav from '../components/NavHeader';
 
 const GlobalStyle = createGlobalStyle`
     html {
@@ -58,6 +58,7 @@ const GlobalStyle = createGlobalStyle`
       margin: 0.5em 0;
       padding: 1em;
       overflow: auto;
+      font-size: 1rem;
     }
 
     .gatsby-highlight pre[class*="language-"].line-numbers {
@@ -84,10 +85,10 @@ export default ({ children }) => {
     }
   `);
 
-  const title = get(data, "site.siteMetadata.title");
-  const subtitle = get(data, "site.siteMetadata.subtitle");
-  const navigationLinks = get(data, "site.siteMetadata.navigationLinks", []);
-  const language = get(data, "site.siteMetadata.language");
+  const title = get(data, 'site.siteMetadata.title');
+  const subtitle = get(data, 'site.siteMetadata.subtitle');
+  const navigationLinks = get(data, 'site.siteMetadata.navigationLinks', []);
+  const language = get(data, 'site.siteMetadata.language');
 
   return (
     <>
@@ -96,8 +97,8 @@ export default ({ children }) => {
         title={title + (subtitle && ` - ${subtitle}`)}
         meta={[
           {
-            name: "viewport",
-            content: "width=device-width, initial-scale=1.0"
+            name: 'viewport',
+            content: 'width=device-width, initial-scale=1.0'
           }
         ]}
       />
@@ -125,9 +126,9 @@ export default ({ children }) => {
 
       <main
         style={{
-          position: "relative",
-          maxWidth: "40rem",
-          margin: "0 auto"
+          position: 'relative',
+          maxWidth: '40rem',
+          margin: '0 auto'
         }}
       >
         {children}
